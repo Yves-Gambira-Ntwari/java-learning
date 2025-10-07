@@ -1,0 +1,14 @@
+package gambira_24rp05514.itlevel6y2_b.nestedloop;
+
+public class StarPatterns {
+
+	public StarPatterns() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
