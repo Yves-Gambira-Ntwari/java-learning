@@ -1,0 +1,90 @@
+package gambira_24rp05514.itlevel6y2_b.nestedloop;
+import java.util.Scanner;
+
+public class StarPatterns {
+
+	public StarPatterns() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc = new Scanner(System.in);
+		int num = sc.nextInt();
+		System.out.println("1. Solid rectangel ");
+		for(int i = 0; i<=num; i++) {
+			for(int j = num; j>=0; j--) {				
+				System.out.print("*");
+			}
+			System.out.println(" ");
+		}
+		System.out.println();
+		
+		System.out.println("2. Right aligned hallow triangle");
+		int hole = 1;
+		for(int i = 1; i<=num; i++) {
+			for(int j = num; j>0; j--) {
+				if(j == i || j == 1) {					
+				System.out.print("*");
+				} else {
+					System.out.print(" ");
+					
+				}
+			}
+			System.out.println(" ");
+			hole++;
+		}
+		
+		
+		System.out.println("3. Inverted left aligned triangle");
+		for(int i = 0; i<=num; i++) {
+			for(int j = i; j<=num; j++) {				
+				System.out.print("*");
+			}
+			System.out.println(" ");
+		}
+		
+		System.out.println("4. left aligned triangel");
+		for(int i = 0; i<=num; i++) {
+			for(int j = 0; j<=i; j++) {				
+				System.out.print("*");
+			}
+			System.out.println(" ");
+		}
+		System.out.println(" ");
+		
+		System.out.println();
+		
+		System.out.println("5. Right inverted aligned triangle");
+		int hole1 = num;
+		for(int i = 0; i<=num; i++) {
+			for(int j = num; j>0; j--) {
+				if(j < hole1) {					
+				System.out.print("*");
+				} else {
+					System.out.print(" ");
+					
+				}
+			}
+			System.out.println(" ");
+			hole1--;
+		}
+		
+		System.out.println("6. Right aligned triangle");
+		int hole2 = 1;
+		for(int i = 0; i<=num; i++) {
+			for(int j = num; j>0; j--) {
+				if(j < hole2) {					
+					System.out.print("*");
+				} else {
+					System.out.print(" ");
+					
+				}
+			}
+			System.out.println(" ");
+			hole2++;
+		}
+
+	}
+
+}

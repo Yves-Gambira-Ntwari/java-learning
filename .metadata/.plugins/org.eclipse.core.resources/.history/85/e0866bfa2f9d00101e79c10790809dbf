@@ -1,0 +1,21 @@
+package exercis;
+
+public class revers {
+
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+int i = 0;
+int num = 0;
+while(num >=25) {
+	if(i %2 == 0) {		
+//	System.out.print(i);
+		i+=3;
+	num +=i;
+	}
+}
+
+System.out.print(num);
+	}
+
+}

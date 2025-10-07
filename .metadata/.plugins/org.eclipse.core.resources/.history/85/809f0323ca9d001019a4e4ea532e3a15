@@ -1,0 +1,56 @@
+package exercis;
+
+public class revers {
+
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method
+		int num = 8915050;
+		String str = "";
+		while(num>0) {
+			int mod = num%10;
+			num = num/10;
+			str = str+mod;
+		}
+
+		for(int i = 0; i<=str.length()-1; i++) {
+			char c = str.charAt(i);
+			switch(c) {
+			case '0':
+				System.out.print(0);
+				break;
+			case '1':
+				System.out.print(1);
+				break;
+			case '2':
+				System.out.print(2);
+				break;
+			case '3':
+				System.out.print(3);
+				break;
+			case '4':
+				System.out.print(4);
+				break;
+			case '5':
+				System.out.print(5);
+				break;
+			case '6':
+				System.out.print(6);
+				break;
+			case '7':
+				System.out.print(7);
+				break;
+			case '8':
+				System.out.print(8);
+				break;
+			case '9':
+				System.out.print(9);
+				break;
+			default:
+				System.out.print(false);
+				
+			}
+		}
+	}
+}
+

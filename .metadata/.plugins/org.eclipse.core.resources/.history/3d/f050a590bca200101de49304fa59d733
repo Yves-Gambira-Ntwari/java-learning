@@ -1,0 +1,96 @@
+package helloworld;
+import java.util.Scanner;
+import java.util.regex.*;
+public class Main {
+public static void main(String arg[]) {
+// int sumfor = 0;
+// System.out.println(num + " multi table using for");
+// for(; i <=10; i++) {
+//	 System.out.println( num + " * " + i + " = " + num*i);
+//	 sumfor +=i;
+// }
+// System.out.println("The sum is " + sumfor);
+// 
+// int j = 0;
+// int sumwhile = 0;
+// System.out.println(num + " multi table using while");
+// while(j <= 10) {
+//	 System.out.println( num + " * " + j + " = " + num*j);
+//	 sumwhile +=j;
+//	 j++;
+// }
+// System.out.println("The sum is " + sumwhile);
+// 
+// int k = 0;
+// int sumdo = 0;
+// System.out.println(num + " multi table using do while");
+// do{
+//	 System.out.println( num + " * " + k + " = " + num*k);
+//	 sumdo +=k;
+//	 k++;
+// }
+// while(k <=10);
+// System.out.println("The sum is " + sumdo);
+//	System.out.println("Enter days,months, years");
+// Scanner sc = new Scanner(System.in);
+// String num = sc.next();
+// int days = 1;
+// int months = 1;
+// int years = 1990;
+// switch(num) {
+// case "days": 
+//	 for(; days <=30; days++) {
+//		 System.out.print(days + " ");
+//	 }
+//	 break;
+// case "months":
+//	 for(; months <=12; months++) {
+//		 System.out.print(months + " ");
+//	 }
+//	 break;
+// case "years":
+//	 for(; years <=2025; years++) {
+//		 System.out.print(years + " ");
+//	 }
+//	 break;
+//default:
+//	System.out.print("Invalid input");
+//	 
+// }
+	
+//	for(int i = 0, j = 1; i<=5; i++, j = j*2) {
+//		System.out.println(i + " " + j);
+//	}
+//	
+//	String str = "32/01/2025";
+//	System.out.print(str.matches("[0-3][0-9]/[01][0-2]/[0-9]{4}"));
+//	String fruits[] = {"Mango", "Orange", "Apple", "Pineapple"};
+//	System.out.println("Fruits: ");
+//	for(int i = 0; i< fruits.length; i++) {
+//		System.out.println("- "+ fruits[i]);
+//	}
+//	
+//	System.out.println("Fruits: ");
+//	for(String x:fruits)
+//		System.out.println("- "+x);		
+//}
+Scanner sc = new Scanner(System.in);
+System.out.print("Enter your marks: ");
+double moduleNumber = sc.nextDouble();
+int marks[];
+marks = new int[moduleNumber];
+System.out.print("Enter your names: ");
+String name = sc.next();
+for(int i = 0; i<marks.length; i++) {
+	System.out.print("Enter your " + (i+1) + " marks: ");
+	marks[i] = sc.nextInt();
+	
+}
+sc.close();
+
+System.out.println("Hello "+ name + " Here are your makrs: "  );
+for(int mark:marks)
+	System.out.println(mark);
+}
+
+}

@@ -1,0 +1,26 @@
+package exercis;
+
+public class revers {
+
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int q = 2002;
+		int count = 0;
+		int rev = 0;
+		while(q>0) {
+			System.out.println(count);
+			count++;
+			int mod = q % 10;
+			q = q/10;
+			System.out.println(mod);
+			rev = rev*10+mod;
+		}
+		System.out.print(rev);
+//		if(rev == q) {
+//			System.out.print("This number is pyntrom");
+//		}
+
+	}
+
+}
