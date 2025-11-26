@@ -20,4 +20,11 @@ public class Learning {
 		String date = "26/11/20";
 		System.out.print(date.matches("[0-3][0-9]/[0-1][0-2]/\\d+{4}"));
 	}
+
+	for(int i = 0; i <=5; i++) {
+			for(int j = 0; j<=i; j++) {
+				System.out.print("*");
+			}
+			System.out.println();
+		}
 }
