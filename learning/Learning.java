@@ -14,7 +14,11 @@ public class Learning {
 			counter ++;
 		}
 		System.out.print(str);
-
+				String text = "hello 12345 world";
+		String resutl = text.replaceAll("\\s", "-");
+//		System.out.print(resutl);
+		String date = "26/11/20";
+		System.out.print(date.matches("[0-3][0-9]/[0-1][0-2]/\\d+{4}"));
 	}
 
 }
