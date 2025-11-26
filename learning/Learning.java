@@ -20,4 +20,107 @@ public class Learning {
 		String date = "26/11/20";
 		System.out.print(date.matches("[0-3][0-9]/[0-1][0-2]/\\d+{4}"));
 	}
+
+	for(int i = 0; i <=5; i++) {
+			for(int j = 0; j<=i; j++) {
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+		for(int i = 5; i >=0; i--) {
+			for(int j = 0; j<=i; j++) {
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+		for(int i = 5; i >=0; i--) {
+			for(int j = 0; j<=5; j++) {
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+			        for(int i = 1; i <=10; i++) {
+	        	for(int j = 1; j<=i; j++) {
+	        		if( j< 10 - i) {
+	        			System.out.print(" ");
+	        		} else {
+	        			System.out.print("*");
+	        			
+	        		}
+	        	}
+	        	System.out.println();
+	        }
+
+							 for(int i = 1; i <=5; i++) {
+			 for(int k = 1; k <= 5 - i; k++) System.out.print(" ");
+			 for(int j = 1; j <= i; j++)System.out.print("*");
+			 System.out.println();
+		 }
+		 for(int i = 5; i >=1; i--) {
+			 for(int k = 1; k <= 5 - i; k++) System.out.print(" ");
+			 for(int j = 1; j <= i; j++)System.out.print("*");
+			 System.out.println();
+		 }
+
+		 	    for (int i = 1; i <= 5; i++) {
+	        	for(int s = 1; s <= 5 - i; s++) System.out.print(" ");
+	        	for(int j = 1; j <= 2 * i - 1; j++) System.out.print("*");
+	        	System.out.println();
+	        }
+					for (int i = 5; i >= 1; i--) {
+	        	for(int k = 1; k <= 5 - i; k++) System.out.print(" ");
+	        	for(int j = 1; j <= 2 * i -1; j++) System.out.print("*");
+	        	System.out.println();
+	        }
+						        for (int i = 1; i <= 5; i++) {
+	            for (int j = 1; j <= i; j++) {
+	                if (i == 1 || j == 1 || j == i || i == 5) System.out.print("*");
+	                else System.out.print(" ");
+	            }
+	            System.out.println();
+	        }
+						        for (int i = 1; i <= 5; i++) {
+	            for (int j = 1; j <= 5 - i; j++)System.out.print(" ");
+	            for(int k = 1; k <= 2 * i - 1; k++) {
+	            	if(i == 5 || k == 1 || k == 2*i-1) System.out.print("*");
+	            	else System.out.print(" ");
+	            }
+	            System.out.println();
+	        }
+
+						        int num = 1;
+	        for (int i = 1; i <= 5; i++) {
+	            for (int j = 1; j <= i; j++) {
+	                System.out.print(num++ + " ");
+	            }
+	            System.out.println();
+	        }
+					        for(int i = 1; i <= 5; i++) {
+	        	for(int s = 1; s<= 5 - i; s++)System.out.print(" ");
+	        	for(int j = 1; j <= 2*i-1; j++) {
+	        		if( j== 1|| j== 2*i-1)System.out.print("*");
+	        		else System.out.print(" ");
+	        	}
+	        	System.out.println();
+	        }
+	        for(int i = 5; i >= 1; i--) {
+	        	for(int s = 1; s<= 5 - i; s++)System.out.print(" ");
+	        	for(int j = 1; j <= 2*i-1; j++) {
+	        		if( j==1|| j== 2*i-1)System.out.print("*");
+	        		else System.out.print(" ");
+	        	}
+	        	System.out.println();
+	        }
+						        for(int i = 1; i <= 5; i++) {
+	        	for(int s = 1; s<= 5 - i; s++)System.out.print(" ");
+	        	for(int j = 1; j <= 2*i-1; j++)System.out.print("*");
+	        	System.out.println();
+	        }
+	        for(int i = 5; i >= 1; i--) {
+	        	for(int s = 1; s<= 5 - i; s++)System.out.print(" ");
+	        	for(int j = 1; j <= 2*i-1; j++)System.out.print("*");
+	        	System.out.println();
+	        }
+		
+	        
 }
