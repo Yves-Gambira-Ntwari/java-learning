@@ -2,9 +2,17 @@ package champion;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-public class Login_form {
 
-	public static void main(String[] args) {
+import premier_league.Database;
+
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+public class Login_form {
+	public static void main(String[] args) throws SQLException {
+		String db_url = "jdbc:mysql://localhost:3306/premier_league";
+		Connection con = DriverManager.getConnection(db_url, "root", "");
+		Statement stm = con.createStatement();
 		JFrame frame = new JFrame("Login Form");
 		JLabel firstname =  new JLabel("First name: ");
 		JTextField fnameField = new JTextField(20);
@@ -28,34 +36,92 @@ public class Login_form {
         model.addColumn("Fun name");
         model.addColumn("Team Name");
         model.addColumn("Average Goals");
-        model.addRow(new Object[]{ "Alice", 21, 0.2});
-        model.addRow(new Object[]{ "Bob", 23,03});
+        String displaySql = "SELECT *FROM fan";
+        PreparedStatement ps = con.prepareStatement(displaySql);
+        ResultSet rs = ps.executeQuery();
+        while(rs.next()) {
+        	String fanName = rs.getString("fanName");
+        	String teamNames = rs.getString("team");
+        	int goalOnes = Integer.parseInt(rs.getString("goalone"));
+        	int goalTwos = Integer.parseInt(rs.getString("goaltwo"));
+        	int goalThrees = Integer.parseInt(rs.getString("goalthree"));
+        	int average = (goalOnes + goalTwos + goalThrees)/3;
+        	
+        	
+        	
+        	model.addRow(new Object[]{ fanName, teamNames, average});
+        }
+        
         
         JTable table = new JTable(model);
         JScrollPane scrollPane = new JScrollPane(table);
         
-		JPanel panel = new JPanel();
-		panel.add(firstname);
-		panel.add(fnameField);
-		panel.add(teamName);
-		panel.add(teamField);
-		panel.add(playerOne);
-		panel.add(playerOneField);
-		panel.add(playerTwo);
-		panel.add(playerTwoField);
-		panel.add(playerThree);
-		panel.add(playerThreeField);
-		panel.add(add);
-		panel.add(exit);
-//		panel.add(display);
-		panel.add(scrollPane);
-		panel.add(updateRecord);
-		panel.add(deleteRecord);
+        JPanel formPanel = new JPanel(new GridLayout(5, 2, 10, 10));
+        formPanel.add(firstname);
+        formPanel.add(fnameField);
+
+        formPanel.add(teamName);
+        formPanel.add(teamField);
+
+        formPanel.add(playerOne);
+        formPanel.add(playerOneField);
+
+        formPanel.add(playerTwo);
+        formPanel.add(playerTwoField);
+
+        formPanel.add(playerThree);
+        formPanel.add(playerThreeField);
+        
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.add(add);
+        buttonPanel.add(updateRecord);
+        buttonPanel.add(deleteRecord);
+        buttonPanel.add(exit);
+        
+        frame.setLayout(new BorderLayout(10, 10));
+        frame.add(formPanel, BorderLayout.NORTH);
+        frame.add(scrollPane, BorderLayout.CENTER);
+        frame.add(buttonPanel, BorderLayout.SOUTH);
 		
-		frame.add(panel);
 		frame.setSize(1000, 500);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setVisible(true);
+		
+		add.addActionListener(e ->{
+			String firstnameValue = fnameField.getText();
+			String teamValue = teamField.getText();
+			String playerOneValue = playerOneField.getText();
+			String playerTwoValue =  playerTwoField.getText();
+			String playerThreeValue =  playerThreeField.getText();
+
+			if(firstnameValue.isEmpty() || teamValue.isEmpty() || playerOneValue.isEmpty() || playerTwoValue.isEmpty() || playerThreeValue.isEmpty()) {
+		        JOptionPane.showMessageDialog(
+		                frame,
+		                "Please fill all required fields"
+		            );
+			
+			} else {
+				int newPlayerOne = Integer.parseInt(playerOneValue);
+				int newPlayerTwo = Integer.parseInt(playerTwoValue);
+				int newPlayerThree = Integer.parseInt(playerThreeValue);
+				
+				if(newPlayerOne < 0 || newPlayerTwo <0 || newPlayerThree < 0) {
+			        JOptionPane.showMessageDialog(
+			                frame,
+			                "The Goals must be positive number"
+			            );
+				}else{					
+					try {
+						new Database().Database(firstnameValue, teamValue, playerOneValue, playerTwoValue, playerThreeValue);
+						
+					} catch (Exception e2) {
+						System.out.println(e2);
+					}
+				}
+			}
+			
+			
+		});
 		
 		
 
