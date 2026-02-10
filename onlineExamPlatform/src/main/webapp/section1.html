@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Multi-Section Quiz</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f2f5;
+  display: flex;
+  justify-content: center;
+  padding: 50px;
+}
+.quiz-container {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  width: 400px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.question {
+  margin-bottom: 20px;
+}
+.question label {
+  display: block;
+  margin: 5px 0;
+}
+button {
+  padding: 10px;
+  width: 100px;
+  margin-top: 10px;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  background-color: #4CAF50;
+  color: white;
+}
+button:hover {
+  background-color: #45a049;
+}
+</style>
+</head>
+<body>
+
+<div class="quiz-container">
+  <form id="quizForm" action="AnswerCheckerServlet" method="post">
+    <div class="section" id="section1">
+      <h3>Section 1</h3>
+
+      <div class="question">
+        <p>1. What is the capital of France? (1 mark)</p>
+        <label><input type="radio" name="q1" value="A" required> A) Berlin</label>
+        <label><input type="radio" name="q1" value="B"> B) Paris</label>
+        <label><input type="radio" name="q1" value="C"> C) Madrid</label>
+        <label><input type="radio" name="q1" value="D"> D) Rome</label>
+      </div>
+
+      <div class="question">
+        <p>2. Solve: 5 × 6 = ? (1 mark)</p>
+        <label><input type="radio" name="q2" value="A" required> A) 30</label>
+        <label><input type="radio" name="q2" value="B"> B) 11</label>
+        <label><input type="radio" name="q2" value="C"> C) 56</label>
+        <label><input type="radio" name="q2" value="D"> D) 25</label>
+      </div>
+      
+       <div class="question">
+        <p>3. Which planet is known as the Red Planet? (1 mark)</p>
+        <label><input type="radio" name="q3" value="A" required> A) Venus</label>
+        <label><input type="radio" name="q3" value="B"> B) Mars</label>
+        <label><input type="radio" name="q3" value="C"> C) Jupiter</label>
+        <label><input type="radio" name="q3" value="D"> D) Saturn</label>
+      </div>
+
+      <button type="button" onclick="nextSection(1)">Next</button>
+    </div>
+
+    <!-- Section 2 -->
+    <div class="section" id="section2" style="display:none;">
+      <h3>Section 2</h3>
+
+      <div class="question">
+        <p>4. Who wrote Romeo and Juliet? (1 mark)</p>
+        <label><input type="radio" name="q4" value="A" required> A) Charles Dickens</label>
+        <label><input type="radio" name="q4" value="B"> B) William Shakespeare</label>
+        <label><input type="radio" name="q4" value="C"> C) Mark Twain</label>
+        <label><input type="radio" name="q4" value="D"> D) Jane Austen</label>
+      </div>
+      
+      <div class="question">
+        <p>5. 12 ÷ 4 = ? (1 mark)</p>
+        <label><input type="radio" name="q5" value="A" required> A) 2</label>
+        <label><input type="radio" name="q5" value="B"> B) 4</label>
+        <label><input type="radio" name="q5" value="C"> C) 3</label>
+        <label><input type="radio" name="q5" value="D"> D) 6</label>
+      </div>
+
+      <div class="question">
+        <p>6. What is the chemical symbol for water? (1 mark)</p>
+        <label><input type="radio" name="q6" value="A" required> A) O₂</label>
+        <label><input type="radio" name="q6" value="B"> B) H₂O</label>
+        <label><input type="radio" name="q6" value="C"> C) CO₂</label>
+        <label><input type="radio" name="q6" value="D"> D) NaCl</label>
+      </div>
+
+      <button type="button" onclick="nextSection(2)">Next</button>
+    </div>
+
+    <!-- Section 3 -->
+    <div class="section" id="section3" style="display:none;">
+      <h3>Section 3</h3>
+      <div class="question">
+            <p>7. Which continent is Egypt in? (1 mark)</p>
+      <label><input type="radio" name="q7" value="A" required> A) Asia</label>
+      <label><input type="radio" name="q7" value="B"> B) Africa</label>
+      <label><input type="radio" name="q7" value="C"> C) Europe</label>
+      <label><input type="radio" name="q7" value="D"> D) Australia</label>
+    </div>
+    <div class="question">
+      <p>8. Solve: 7 + 8 = ? (1 mark)</p>
+      <label><input type="radio" name="q8" value="A" required> A) 14</label>
+      <label><input type="radio" name="q8" value="B"> B) 15</label>
+      <label><input type="radio" name="q8" value="C"> C) 16</label>
+      <label><input type="radio" name="q8" value="D"> D) 17</label>
+    </div>
+    <div class="question">
+      <p>9. What is the largest mammal? (1 mark)</p>
+      <label><input type="radio" name="q9" value="A" required> A) Elephant</label>
+      <label><input type="radio" name="q9" value="B"> B) Blue Whale</label>
+      <label><input type="radio" name="q9" value="C"> C) Giraffe</label>
+      <label><input type="radio" name="q9" value="D"> D) Hippopotamus</label>
+    </div>
+
+
+      <button type="submit">Submit Quiz</button>
+    </div>
+
+  </form>
+</div>
+
+<script>
+function nextSection(current) {
+  document.getElementById('section' + current).style.display = 'none';
+  document.getElementById('section' + (current + 1)).style.display = 'block';
+}
+</script>
+
+</body>
+</html>
