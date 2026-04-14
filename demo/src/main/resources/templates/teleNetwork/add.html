@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Network</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+
+<nav class="bg-gray-900 text-white p-4">
+    <a href="/home" class="mr-4 hover:text-yellow-400">Home</a>
+    <a href="/contacts" class="mr-4 hover:text-yellow-400">Contacts</a>
+    <a href="/networks" class="hover:text-yellow-400">Telephone</a>
+</nav>
+
+<div class="flex justify-center items-center mt-10">
+	
+    <form th:action="@{/networks/add}"  method="post" th:object="${network}"
+          class="bg-white p-6 rounded-2xl shadow-md w-full max-w-md">
+
+        <h2 class="text-2xl font-bold mb-4 text-center">Add Network</h2>
+
+        <div class="mb-4">
+            <label class="block text-gray-700">Network Name</label>
+            <input type="text" th:field="*{name}"
+                   class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                   placeholder="e.g. MTN, Airtel"
+                   required>
+        </div>
+
+        <button type="submit"
+                class="w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition">
+            Save Network
+        </button>
+
+    </form>
+</div>
+
+</body>
+</html>
