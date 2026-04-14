@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+
+<nav class="bg-gray-900 text-white">
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="flex justify-between h-16 items-center">
+
+            <div class="text-xl font-bold">
+                <a href="/">MyApp</a>
+            </div>
+
+            <div class="flex space-x-6">
+
+                <a href="/home" class="hover:text-yellow-400 transition">
+                    Home
+                </a>
+
+                <a href="/contacts" class="hover:text-yellow-400 transition">
+                    Contacts
+                </a>
+
+                <a href="/networks" class="hover:text-yellow-400 transition">
+                    Telephone
+                </a>
+
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="p-6">
+    <h1 class="text-2xl font-bold">Welcome to Home Page 🎉</h1>
+</div>
+<div>
+	<table>
+		<tr>
+			<td>No</td>
+			<td>Names</td>
+			<td>Telephone</td>
+			<td>Network</td>
+			<td>Actions</td>
+		</tr>
+<tr th:each="c,i : ${allContacts}">
+	<td th:text="${i.index + 1}"></td>
+    <td th:text="${c.username}"></td>
+    <td th:text="${c.telephone}"></td>
+    <td th:text="${c.network != null ? c.network.name : 'No Network'}"></td>
+    <td>
+		<a href="/delete"><button>Delete</button></a>
+		<a href="/update"><button>Update</button></a>
+	</td>
+</tr>
+	</table>
+</div>
+</body>
+</html>
