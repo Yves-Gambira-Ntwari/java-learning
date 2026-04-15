@@ -30,6 +30,6 @@ public class ContactController {
 		repoContact.save(data);
 		
 		
-		return "redirect:/contacts";
+		return "redirect:/home";
 	}
 }
