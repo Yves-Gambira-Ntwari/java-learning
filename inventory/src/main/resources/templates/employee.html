@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employee Form</title>
+</head>
+<body>
+	    <!-- Navigation -->
+    <nav>
+        <a href="/dashboard">Dashboard</a> |
+        <a href="/employee">Employees</a> |
+        <a href="/devices">Devices</a> |
+        <a href="/department">Departments</a> |
+        <a href="/history">History</a>|
+        <a href="/logout">Logout</a>
+    </nav>
+    <h2>Add Employee</h2>
+
+    <form th:action="@{/employee/save}" method="post" th:object=${employee}>
+        <label for="name">Full Name:</label>
+        <input type="hidden" th:field="*{id}">
+        <input type="text" id="name" th:field="*{name}"  required />
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" th:field="*{email}"  required />
+
+        <label for="department">Department:</label>
+         <select id="department" th:field="*{department}">
+            <option
+           th:each="dept : ${department}"
+           th:value="${dept.id}"
+           th:text="${dept.name}"
+            ></option>
+        </select>
+
+        <label for="role">Role:</label>
+        <select id="role">
+            <option value="EMPLOYEE">Employee</option>
+            <option value="MANAGER">Manager</option>
+            <option value="ADMIN">Admin</option>
+        </select>
+
+        <button type="submit">Save Employee</button>
+    </form>
+
+    <a href="/dashboard">Back to Dashboard</a>
+</body>
+</html>

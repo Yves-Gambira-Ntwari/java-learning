@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Devices Form</title>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <a href="/dashboard">Dashboard</a> |
+        <a href="/employee">Employees</a> |
+        <a href="/devices">Devices</a> |
+        <a href="/department">Departments</a> |
+        <a href="/assegnment">assegnment</a> |
+        <a href="/history">History</a>|
+        <a href="/logout">Logout</a>
+    </nav>
+    <h2>Add Device</h2>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Devices Form</title>
+</head>
+<body>
+
+    <form th:action="@{/devices/save}" method="post" th:object="${devices}">
+		
+		<input type="hidden" th:field="*{id}">
+        <label for="serialNumber">Serial Number:</label>
+        <input type="text" id="serialNumber" th:field="*{serialNumber}" required />
+
+        <label for="type">Type:</label>
+        <select id="type" th:field="*{type}">
+            <option value="Laptop">Laptop</option>
+            <option value="Desktop">Desktop</option>
+            <option value="Mobile">Mobile</option>
+        </select>
+
+        <label for="brand">Brand:</label>
+        <input type="text" id="brand" th:field="*{brand}" required />
+
+        <label for="model">Model:</label>
+        <input type="text" id="model" th:field="*{model}" required />
+
+        <label for="specifications">Specifications:</label>
+        <textarea id="specifications" th:field="*{specifications}"></textarea>
+
+        <label for="condition">Condition:</label>
+        <section type="text" id="condition" th:field="*{conditions}" required >
+			<option value="Good">good</option>
+			<option value="Bad">bad</option>
+			<option value="Normal">Normal</option>
+			
+		</section>
+
+        <label for="status">Status:</label>
+        <select id="status" th:field="*{status}">
+            <option value="Available">Available</option>
+            <option value="Assigned">Assigned</option>
+            <option value="Repair">Repair</option>
+            <option value="Retired">Retired</option>
+        </select>
+
+        <button type="submit">Save Device</button>
+    </form>
+
+
+</body>
+</html>

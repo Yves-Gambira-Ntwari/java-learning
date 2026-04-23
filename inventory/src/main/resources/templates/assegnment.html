@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>New Assignment</title>
+</head>
+<body>
+	    <!-- Navigation -->
+    <nav>
+        <a href="/dashboard">Dashboard</a> |
+        <a href="/employee">Employees</a> |
+        <a href="/devices">Devices</a> |
+        <a href="/department">Departments</a> |
+        <a href="/assegnment">assegnment</a> |
+        <a href="/history">History</a>|
+        <a href="/logout">Logout</a>
+    </nav>
+    <h2>Create Assignment</h2>
+
+    <form th:action="@{/assignments/save}" method="post" th:object="${assegnment}">
+		<input type="hidden" th:field="*{id}">
+        <label for="issueDate">Issue Date:</label>
+        <input type="date" id="issueDate" th:field="*{issueDate}" required />
+
+        <label for="returnDate">Return Date:</label>
+        <input type="date" id="returnDate" th:field="*{returnDate}" />
+
+        <label for="status">Status:</label>
+        <select id="status" th:field="*{status}">
+            <option value="ISSUED">Issued</option>
+            <option value="RETURNED">Returned</option>
+            <option value="OVERDUE">Overdue</option>
+        </select>
+
+        <label for="device">Device:</label>
+        <select id="device" th:field="*{device}">
+			<option
+			th:each="dev :${device}"
+			th:value="${dev.id}"
+			th:text="${dev.serialNumber}"
+			>	
+			</option>
+		</select>
+		<label for="Employee">Employee</label>
+		<select id="Employee" th:field="*{employee}">
+			<option
+				th:each="emp : ${employee}"
+				th:value="${emp.id}"
+				th:text="${emp.name}"
+			></option>
+		</select>
+		<button type="submit">submit</button>
+    </form>

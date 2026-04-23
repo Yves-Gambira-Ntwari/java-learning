@@ -25,11 +25,8 @@ public class ContactController {
 	
 	@PostMapping("/contacts/add")
 	public String insertContact(Contacts data) {
-		
-
 		repoContact.save(data);
 		
-		
-		return "redirect:/contacts";
+		return "redirect:/home";
 	}
 }
