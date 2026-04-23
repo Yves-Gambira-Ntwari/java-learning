@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Department Form</title>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <a href="/dashboard">Dashboard</a> |
+        <a href="/employee">Employees</a> |
+        <a href="/devices">Devices</a> |
+        <a href="/department">Departments</a> |
+        <a href="/assegnment">assegnment</a> |
+        <a href="/history">History</a>|
+        <a href="/logout">Logout</a>
+    </nav>
+    <h2>Add Department</h2>
+
+    <form th:action="@{/department/save}" method="post" th:object="${department}">
+		<input type="hidden" th:field="*{id}">
+        <label for="name">Department Name:</label>
+        <input type="text" id="name" th:field="*{name}" required />
+
+        <label for="location">Location:</label>
+        <input type="text" id="location" th:field="*{location}" required />
+
+        <button type="submit">Save Department</button>
+    </form>
+
+    <a href="/dashboard">Back to Dashboard</a>
+</body>
+</html>
