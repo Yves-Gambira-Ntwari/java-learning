@@ -26,8 +26,7 @@ public class TeleNetworkController {
 	@PostMapping("/networks/add")
 	public String insertTeleNetwork(@ModelAttribute TeleNetwork data) throws IOException {
 		repoTelenetwork.save(data);
-		return "redirect:/networks";
-		
+		return "redirect:/networks";	
 	}
 	@GetMapping("")
 	public List<TeleNetwork> getAllNetworks(){
