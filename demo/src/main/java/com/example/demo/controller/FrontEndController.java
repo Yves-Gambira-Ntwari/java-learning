@@ -32,6 +32,7 @@ public class FrontEndController {
 		
 		return "welcome";
 	}
+	
 	@GetMapping("/contacts")
 	public String contacts(Model model) {
 		model.addAttribute("contact", new Contacts());
