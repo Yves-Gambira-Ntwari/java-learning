@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 import javax.servlet.http.HttpSession;
 
 import com.gambira.inventory.models.Mdl_users;
@@ -27,13 +29,14 @@ public class AuthController {
     }
     
     @PostMapping("/login")
-    public String login(Mdl_users user, Model model, HttpSession session) {
+    public String login(Mdl_users user, Model model, HttpSession session, RedirectAttributes redirectAttribute) {
     	Mdl_users userData = repoUsers.getUser(user.getUsername(), user.getPassword());
     	if(userData != null) {
     		session.setAttribute("loggedInUser", user.getUsername());
     		return "redirect:/dashboard";
     	}else {
-            return "login";
+    		redirectAttribute.addFlashAttribute("error", "Enter correct Username and password");
+            return "redirect:/login";
     	}
     }
 

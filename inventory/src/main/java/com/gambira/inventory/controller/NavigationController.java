@@ -47,11 +47,16 @@ public class NavigationController {
     	List<Mdl_devices> device = repoDevices.findAll();
     	List<Mdl_employee> employees = repoEmployee.findAll();
     	
+    	
     	List<Mdl_department> department = repoDepartment.findAll();
     	List<Mdl_assegnment> assegnment = repoAssegnmet.findAll();
     	model.addAttribute("employees", employees);
+    	model.addAttribute("employeeCount", repoEmployee.count());
     	model.addAttribute("device",device);
+    	model.addAttribute("deviceCount",repoDevices.count());
+    	
     	model.addAttribute("department", department);
+    	model.addAttribute("departmentCount", repoDepartment.count());
     	model.addAttribute("assegnment",assegnment);
     	
     	model.addAttribute("employee", new Mdl_employee());
